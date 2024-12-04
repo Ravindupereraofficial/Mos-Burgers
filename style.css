@@ -1,86 +1,123 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ecdfd6, #d76d77, #3a1c71);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-  }
-  
-  .login-container {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    padding: 30px 40px;
-    text-align: center;
-    width: 350px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .logo img {
-    width: 80px;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-    font-size: 24px;
-  }
-  
-  p {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    border-radius: 25px;
-    border: none;
-    background-color: #f7f7f7;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  input::placeholder {
-    color: #aaa;
-  }
-  
-  button.login-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #ff6f61;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-  
-  button.login-btn:hover {
-    background-color: #ff3d2e;
-  }
-  
-  .links {
-    margin-top: 15px;
-  }
-  
-  .links a {
-    color: #ffaf7b;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .links a:hover {
-    text-decoration: underline;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  background: url('img/Leonardo_Lightning_XL_A_realistic_depiction_of_a_juicy_burger_2.jpg') no-repeat center center/cover;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); 
+  z-index: 1;
+}
+
+.main-container {
+  display: flex;
+  width: 800px;
+  max-width: 90%;
+  height: 450px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2; 
+  backdrop-filter: blur(12px); 
+}
+
+.login-container {
+  width: 50%;
+  padding: 30px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8); 
+}
+
+.logo img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  color: #333;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6f61;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button.login-btn:hover {
+  background-color: #ff3d2e;
+}
+
+.links {
+  margin-top: 15px;
+}
+
+.links a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.image-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
