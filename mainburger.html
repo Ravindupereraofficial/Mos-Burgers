@@ -3,15 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Burger Shop</title>
-  <link rel="stylesheet" href="style.css"> 
+  <title>Burger Shop POS</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="welcome-container">
-    <h1>Welcome to Burger Shop, Ravindu!</h1>
-    <p>Thank you for logging in. Enjoy exploring our delicious menu and exclusive offers.</p>
-    <a href="menu.html" class="btn">View Menu</a> 
-    <a href="logout.html" class="btn">Logout</a> 
+  <!-- Horizontal Navbar -->
+  <header class="horizontal-nav">
+    <div class="logo">🍔 Burger Shop</div>
+    <nav>
+      <ul class="horizontal-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="pos-container">
+    <!-- Vertical Navigation Bar -->
+    <nav class="vertical-nav">
+      <ul class="nav-links">
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pos-main">
+      <!-- Burgers Section -->
+      <section class="burgers-section">
+        <h2 class="section-title">All Burgers</h2>
+        <div class="burger-cards">
+          <div class="burger-card">
+            <img src="img/Leonardo_Lightning_XL_A_realistic_depiction_of_a_juicy_burger_3.jpg" alt="Classic Burger" class="burger-img">
+            <div class="burger-info">
+              <h3>Classic Burger</h3>
+              <p>700.00</p>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+          <div class="burger-card">
+            <img src="img/Leonardo_Lightning_XL_A_realistic_depiction_of_a_juicy_burger_2.jpg" alt="Cheeseburger" class="burger-img">
+            <div class="burger-info">
+              <h3>Cheeseburger</h3>
+              <p>500.00</p>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+          <div class="burger-card">
+            <img src="img/Leonardo_Lightning_XL_A_realistic_depiction_of_a_juicy_burger_2 (1).jpg" alt="Double Burger" class="burger-img">
+            <div class="burger-info">
+              <h3>Double Burger</h3>
+              <p>250.00</p>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cart Section -->
+      <section class="cart-section">
+        <h2 class="section-title">Cart</h2>
+        <div class="cart-items">
+          <div class="cart-item">
+            <span>Classic Burger</span>
+            <span>1 x 5.99</span>
+          </div>
+          <div class="cart-total">
+            <strong>Total:</strong> 5.99
+          </div>
+        </div>
+        <button class="complete-order">Complete Order</button>
+      </section>
+    </main>
   </div>
 </body>
 </html>

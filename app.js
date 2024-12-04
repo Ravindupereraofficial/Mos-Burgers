@@ -1,6 +1,7 @@
 console.log("ravindu")
 function loadindex(){
 document.body.innerHTML = `
+
     <div class="loadindex">
     <div class="background-overlay"></div> <!-- White fade overlay -->
     <div class="main-container">
