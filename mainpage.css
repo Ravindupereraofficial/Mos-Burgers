@@ -1,0 +1,169 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.menu, .side-section {
+    width: 48%;
+}
+
+.menu h2, .side-section h2 {
+    margin-bottom: 20px;
+}
+
+.filter-buttons button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.filter-buttons button:hover {
+    background-color: #45a049;
+}
+
+/* Burger Cards */
+.burger-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.card .price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card button:hover {
+    background-color: #45a049;
+}
+
+/* Right Sidebar (Cart Section) */
+.side-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-section th, .cart-section td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.cart-summary input {
+    width: 50%;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+/* Buttons */
+.primary-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background-color: #45a049;
+}
+
+/* Customer Form */
+.customer-info, .new-customer-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.customer-info input, .customer-info textarea, .new-customer-form input, .new-customer-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.customer-management {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.customer-management table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customer-management th, .customer-management td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
