@@ -47,7 +47,7 @@ header {
     background-color: #45a049;
 }
 
-/* Burger Cards */
+/* all Burger Cards */
 .burger-cards {
     display: flex;
     flex-wrap: wrap;
