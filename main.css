@@ -1,0 +1,113 @@
+/* General container styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.products {
+    flex: 3;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.cart-section,
+.order-history-section {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Product card layout */
+.product-card {
+    width: 31%;
+    margin-bottom: 20px;
+    margin-right: 1%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    float: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-card h3 {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+}
+
+.product-card p {
+    padding: 10px;
+    text-align: center;
+}
+
+.product-card button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0d0c6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #fba78d;
+}
+
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Cart and order history sections */
+.cart-items-list,
+.order-history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-items-list li,
+.order-history-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-history-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-card {
+        width: 48%; /* Two cards per row for smaller screens */
+        margin-right: 2%;
+    }
+
+    .product-row {
+        justify-content: space-around;
+    }
+}

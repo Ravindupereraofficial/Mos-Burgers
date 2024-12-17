@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger POS System</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Product Cards Section -->
+        <div class="products">
+            <h2>Menu</h2>
+            <div class="product-container">
+                <!-- Categories of Items -->
+                <div class="product-category" id="burger-category">
+                    <h3>Burgers</h3>
+                    <div class="product-row" id="burger-row">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <div class="product-category" id="submarine-category">
+                    <h3>Submarines</h3>
+                    <div class="product-row" id="submarine-row">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <div class="product-category" id="fries-category">
+                    <h3>Fries</h3>
+                    <div class="product-row" id="fries-row">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <div class="product-category" id="pasta-category">
+                    <h3>Pasta</h3>
+                    <div class="product-row" id="pasta-row">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <div class="product-category" id="chicken-category">
+                    <h3>Chicken</h3>
+                    <div class="product-row" id="chicken-row">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <div class="product-category" id="beverages-category">
+                    <h3>Beverages</h3>
+                    <div class="product-row" id="beverages-row">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Section -->
+        <div class="cart-section">
+            <h2>Cart</h2>
+            <ul id="cart-items" class="cart-items-list">
+                <!-- Cart items will be displayed here -->
+            </ul>
+            <button id="place-order">Place Order</button>
+        </div>
+
+        <!-- Order History Section -->
+        <div class="order-history-section">
+            <h2>Order History</h2>
+            <ul id="order-history" class="order-history-list">
+                <!-- Order history will be displayed here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
