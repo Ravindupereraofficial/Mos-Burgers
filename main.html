@@ -19,41 +19,7 @@
                         <!-- Cards will be dynamically inserted here -->
                     </div>
                 </div>
-
-                <div class="product-category" id="submarine-category">
-                    <h3>Submarines</h3>
-                    <div class="product-row" id="submarine-row">
-                        <!-- Cards will be dynamically inserted here -->
-                    </div>
-                </div>
-
-                <div class="product-category" id="fries-category">
-                    <h3>Fries</h3>
-                    <div class="product-row" id="fries-row">
-                        <!-- Cards will be dynamically inserted here -->
-                    </div>
-                </div>
-
-                <div class="product-category" id="pasta-category">
-                    <h3>Pasta</h3>
-                    <div class="product-row" id="pasta-row">
-                        <!-- Cards will be dynamically inserted here -->
-                    </div>
-                </div>
-
-                <div class="product-category" id="chicken-category">
-                    <h3>Chicken</h3>
-                    <div class="product-row" id="chicken-row">
-                        <!-- Cards will be dynamically inserted here -->
-                    </div>
-                </div>
-
-                <div class="product-category" id="beverages-category">
-                    <h3>Beverages</h3>
-                    <div class="product-row" id="beverages-row">
-                        <!-- Cards will be dynamically inserted here -->
-                    </div>
-                </div>
+                <!-- Other categories -->
             </div>
         </div>
 
@@ -63,7 +29,17 @@
             <ul id="cart-items" class="cart-items-list">
                 <!-- Cart items will be displayed here -->
             </ul>
-            <button id="place-order">Place Order</button>
+
+            <h3>Customer Details</h3>
+            <form id="customer-form">
+                <label for="customer-name">Name:</label>
+                <input type="text" id="customer-name" required><br>
+                <label for="customer-contact">Contact:</label>
+                <input type="text" id="customer-contact" required><br>
+                <label for="customer-address">Address:</label>
+                <textarea id="customer-address" required></textarea><br>
+                <button type="button" onclick="placeOrder()">Place Order</button>
+            </form>
         </div>
 
         <!-- Order History Section -->

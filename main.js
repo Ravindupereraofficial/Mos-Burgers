@@ -52,14 +52,15 @@ const items = [
     { id: "B1051", name: "Soft Drinks", price: 200, discount: 0, category: "beverages", image: "beverage4.jpg" }
 ];
 
+
+
+
 const cart = [];
 const orderHistory = [];
 
-// Function to display product cards
+// Function to display products
 function displayProducts(category) {
     const productRow = document.getElementById(`${category}-row`);
-    productRow.innerHTML = "";
-
     const filteredItems = items.filter(item => item.category === category);
 
     filteredItems.forEach(item => {
@@ -67,46 +68,77 @@ function displayProducts(category) {
             <div class="product-card">
                 <img src="${item.image}" alt="${item.name}">
                 <h3>${item.name}</h3>
-                <p>Price: LKR ${item.price} ${item.discount > 0 ? `<span class="discount">${item.discount}% off</span>` : ""}</p>
+                <p>LKR ${item.price}</p>
                 <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})">Add to Cart</button>
             </div>
         `;
     });
 }
 
-// Function to add item to cart
+// Function to add an item to the cart
 function addToCart(id, name, price) {
-    const item = { id, name, price, quantity: 1 };
-    cart.push(item);
+    const existingItem = cart.find(item => item.id === id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ id, name, price, quantity: 1 });
+    }
     displayCart();
 }
 
-// Function to display cart
+// Function to display cart items
 function displayCart() {
     const cartItems = document.getElementById("cart-items");
     cartItems.innerHTML = "";
 
     if (cart.length === 0) {
-        cartItems.innerHTML = `<li>No items in cart</li>`;
+        cartItems.innerHTML = `<li>No items in the cart.</li>`;
     } else {
         cart.forEach(item => {
             cartItems.innerHTML += `
-                <li>${item.name} - ${item.quantity} x LKR ${item.price} 
+                <li>
+                    ${item.name} - ${item.quantity} x LKR ${item.price}
                     <button onclick="removeFromCart('${item.id}')">Remove</button>
                 </li>
             `;
         });
     }
-
-    displayOrderHistory(); // Show order history
 }
 
-// Function to remove item from cart
+// Function to remove an item from the cart
 function removeFromCart(id) {
     const index = cart.findIndex(item => item.id === id);
     if (index !== -1) {
         cart.splice(index, 1);
+    }
+    displayCart();
+}
+
+// Function to place an order
+function placeOrder() {
+    const customerName = document.getElementById("customer-name").value;
+    const customerContact = document.getElementById("customer-contact").value;
+    const customerAddress = document.getElementById("customer-address").value;
+
+    if (!customerName || !customerContact || !customerAddress) {
+        alert("Please fill in all customer details.");
+        return;
+    }
+
+    if (cart.length > 0) {
+        const order = {
+            customer: { name: customerName, contact: customerContact, address: customerAddress },
+            items: [...cart],
+        };
+        orderHistory.push(order);
+        cart.length = 0; // Clear the cart
         displayCart();
+        displayOrderHistory();
+        document.getElementById("customer-form").reset(); // Reset customer form
+        alert("Order placed successfully!");
+    } else {
+        alert("Cart is empty.");
     }
 }
 
@@ -115,33 +147,28 @@ function displayOrderHistory() {
     const orderHistoryList = document.getElementById("order-history");
     orderHistoryList.innerHTML = "";
 
-    if (orderHistory.length > 0) {
-        orderHistory.forEach(item => {
+    if (orderHistory.length === 0) {
+        orderHistoryList.innerHTML = `<li>No orders yet.</li>`;
+    } else {
+        orderHistory.forEach((order, index) => {
+            const customerInfo = `
+                <strong>Customer:</strong> ${order.customer.name}, 
+                <strong>Contact:</strong> ${order.customer.contact}, 
+                <strong>Address:</strong> ${order.customer.address}
+            `;
+            const orderItems = order.items
+                .map(item => `${item.name} (${item.quantity})`)
+                .join(", ");
             orderHistoryList.innerHTML += `
-                <li>${item.name} - ${item.quantity} x ${item.price} LKR</li>
+                <li>
+                    <strong>Order #${index + 1}:</strong><br>
+                    ${customerInfo}<br>
+                    <strong>Items:</strong> ${orderItems}
+                </li>
             `;
         });
-    } else {
-        orderHistoryList.innerHTML = `<li>No orders placed yet.</li>`;
     }
 }
 
-// Function to place the order
-function placeOrder() {
-    if (cart.length > 0) {
-        orderHistory.push(...cart);
-        cart.length = 0;
-        displayCart();
-        displayOrderHistory();
-    } else {
-        alert("Your cart is empty!");
-    }
-}
-
-// Display initial products
-displayProducts("burger");
-displayProducts("submarine");
-displayProducts("fries");
-displayProducts("pasta");
-displayProducts("chicken");
-displayProducts("beverages");
+// Initialize products
+["burger", "submarine", "fries", "pasta", "chicken", "beverages"].forEach(displayProducts);
