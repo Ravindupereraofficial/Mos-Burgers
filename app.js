@@ -1,17 +1,20 @@
-let admin= {
-    username: "ravindu",
-    password:"123"
-}
-    
-
+// Function to handle login form submission
 function signIn() {
-    let username=document.getElementById("username").value;
-    let password =document.getElementById("password").value;
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
-        
+    // Perform basic validation
+    if (username === '' || password === '') {
+        alert('Please fill in both fields.');
+        return;
+    }
+
+    // Mock validation (replace with actual authentication logic)
+    if (username === 'admin' && password === '123') {
+        alert('Login successful!');
+        // Redirect to the dashboard or home page after login
+        window.location.href = '/main.html';  // Change to your desired page
+    } else {
+        alert('Invalid username or password.');
     }
 }
-
-    
