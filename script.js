@@ -1,4 +1,3 @@
-
 const items = [
     { id: "B1001", name: "Classic Burger (Large)", price: 750, discount: 0, category: "burger", image: "https://images.pexels.com/photos/5554607/pexels-photo-5554607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
     { id: "B1002", name: "Classic Burger (Regular)", price: 1500, discount: 15, category: "burger", image: "https://images.pexels.com/photos/1556698/pexels-photo-1556698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
@@ -50,113 +49,136 @@ const items = [
 
 
 
-
-const cart = [];
-const orderHistory = [];
-
-// Display Products Based on Category
-function displayProducts(category) {
-    const productRow = document.getElementById("product-row");
-    productRow.innerHTML = "";
-
-    const filteredItems = category === "all" ? items : items.filter(item => item.category === category);
-
-    filteredItems.forEach(item => {
-        productRow.innerHTML += `
-            <div class="product-card">
-                <img src="${item.image}" alt="${item.name}">
-                <h3>${item.name}</h3>
-                <p>${item.price} LKR</p>
-                <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})">Add to Cart</button>
-            </div>
-        `;
+  
+  let cart = [];
+  let orders = [];
+  let addedItems = [];
+  
+  function displayItems(filter = "all") {
+    const container = document.getElementById("items-container");
+    container.innerHTML = "";
+    const filtered = items.filter(item => filter === "all" || item.category === filter);
+    filtered.forEach(item => {
+      container.innerHTML += `
+        <div class="item">
+          <img src="${item.image}" alt="${item.name}">
+          <h3>${item.name}</h3>
+          <p>Rs. ${item.price}</p>
+          <button onclick="addToCart('${item.id}')">Add to Cart</button>
+        </div>
+      `;
     });
-}
-
-// Add Item to Cart
-function addToCart(id, name, price) {
-    const existingItem = cart.find(item => item.id === id);
-
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({ id, name, price, quantity: 1 });
-    }
-
+  }
+  
+  function searchItems() {
+    const query = document.getElementById("search-bar").value.toLowerCase();
+    displayItems("all");
+    const itemsDiv = document.querySelectorAll(".item h3");
+    itemsDiv.forEach(item => {
+      if (!item.textContent.toLowerCase().includes(query)) {
+        item.parentElement.style.display = "none";
+      }
+    });
+  }
+  
+  function addToCart(id) {
+    const item = items.find(i => i.id === id);
+    cart.push(item);
     updateCart();
-}
-
-// Update Cart Table
-function updateCart() {
-    const cartItems = document.getElementById("cart-items");
-    cartItems.innerHTML = "";
-
+  }
+  
+  function updateCart() {
+    const cartList = document.getElementById("cart-list");
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const itemCounts = {};
+  
     cart.forEach(item => {
-        cartItems.innerHTML += `
-            <tr>
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
-                <td>${item.price * item.quantity} LKR</td>
-                <td><button onclick="removeFromCart('${item.id}')">Remove</button></td>
-            </tr>
-        `;
+      itemCounts[item.id] = (itemCounts[item.id] || 0) + 1;
     });
-}
-
-// Remove Item from Cart
-function removeFromCart(id) {
-    const index = cart.findIndex(item => item.id === id);
-    if (index > -1) {
-        cart.splice(index, 1);
+  
+    cartList.innerHTML = Object.keys(itemCounts).map(itemId => {
+      const item = items.find(i => i.id === itemId);
+      const quantity = itemCounts[itemId];
+      return `
+        <tr>
+          <td>${item.name}</td>
+          <td>Rs. ${item.price}</td>
+          <td>${quantity}</td>
+          <td>Rs. ${item.price * quantity}</td>
+        </tr>
+      `;
+    }).join("");
+  
+    document.getElementById("total").textContent = total;
+  }
+  
+  function checkout() {
+    const name = document.getElementById("name").value;
+    const contact = document.getElementById("contact").value;
+    const total = document.getElementById("total").textContent;
+  
+    if (!name || !contact) {
+      alert("Please fill in customer details.");
+      return;
     }
-    updateCart();
-}
-
-// Place Order
-function placeOrder() {
-    const name = document.getElementById("customer-name").value;
-    const contact = document.getElementById("customer-contact").value;
-    const address = document.getElementById("customer-address").value;
-
-    if (!name || !contact || !address) {
-        alert("Please fill in all customer details.");
-        return;
-    }
-
-    const order = {
-        id: `ORD${Date.now()}`,
-        items: [...cart],
-        total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
-        customer: { name, contact, address }
+  
+    // Save order to orders array
+    const orderId = Date.now();
+    const orderDetails = {
+      orderId,
+      customerName: name,
+      contact: contact,
+      items: cart.map(item => item.name).join(", "), // Join items names as a comma-separated list
+      total
     };
-
-    orderHistory.push(order);
-    cart.length = 0;
-
+  
+    orders.push(orderDetails);
+  
+    // Add new order to the orders table
+    const ordersTableBody = document.querySelector("#orders-table tbody");
+    ordersTableBody.innerHTML += `
+      <tr>
+        <td>${orderId}</td>
+        <td>${name}</td>
+        <td>${contact}</td>
+        <td>${orderDetails.items}</td>
+        <td>${total}</td>
+      </tr>
+    `;
+  
+    // Clear the cart after checkout
+    cart = [];
     updateCart();
-    displayOrderHistory();
+    
+    // Clear customer details
+    document.getElementById("name").value = "";
+    document.getElementById("contact").value = "";
+    alert("Order placed successfully!");
+  }
+  
+  function addNewItem(event) {
+    event.preventDefault();
+    const name = document.getElementById("item-name").value;
+    const price = parseInt(document.getElementById("item-price").value);
+    const image = document.getElementById("item-image").value;
+    const id = `NEW${Date.now()}`;
+  
+    if (name && price && image) {
+      items.push({ id, name, price, category: "all", image });
+      displayItems();
+      alert("New item added!");
+      document.getElementById("add-item-form").reset();
+    } else {
+      alert("Please fill all fields.");
+    }
 
-    // Clear Customer Fields
-    document.getElementById("customer-form").reset();
-}
+    
 
-// Display Order History
-function displayOrderHistory() {
-    const orderHistoryTable = document.getElementById("order-history");
-    orderHistoryTable.innerHTML = "";
+  }
 
-    orderHistory.forEach(order => {
-        const items = order.items.map(item => `${item.name} x ${item.quantity}`).join(", ");
-        orderHistoryTable.innerHTML += `
-            <tr>
-                <td>${order.id}</td>
-                <td>${items}</td>
-                <td>${order.total} LKR</td>
-                <td>${order.customer.name} (${order.customer.contact}, ${order.customer.address})</td>
-            </tr>
-        `;
-    });
-}
-
-// Display All Products Initially
-displayProducts("all");
+  
+  
+  document.getElementById("add-item-form").addEventListener("submit", addNewItem);
+  document.getElementById("checkout").onclick = checkout;
+  displayItems();
+  

@@ -1,76 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger POS System</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS System</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Product Cards Section -->
-        <div class="products">
-            <h2>Menu</h2>
-            <!-- Category Navigation -->
-            <div class="category-navigation">
-                <button onclick="displayProducts('all')">All</button>
-                <button onclick="displayProducts('burger')">Burgers</button>
-                <button onclick="displayProducts('submarine')">Submarines</button>
-                <button onclick="displayProducts('fries')">Fries</button>
-                <button onclick="displayProducts('pasta')">Pasta</button>
-                <button onclick="displayProducts('chicken')">Chicken</button>
-                <button onclick="displayProducts('beverages')">Beverages</button>
-            </div>
+  <header>
+    <h1>MOS Burger Shop </h1>
+  </header>
 
-            <div class="product-container" id="product-row"></div>
-        </div>
-
-        <!-- Cart and Order History Section -->
-        <div class="cart-order-history-section">
-            <!-- Cart Section -->
-            <div class="cart-section">
-                <h2>Cart</h2>
-                <table id="cart-table">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cart-items"></tbody>
-                </table>
-                <h3>Customer Details</h3>
-                <form id="customer-form">
-                    <label for="customer-name">Name:</label>
-                    <input type="text" id="customer-name" required><br>
-                    <label for="customer-contact">Contact:</label>
-                    <input type="text" id="customer-contact" required><br>
-                    <label for="customer-address">Address:</label>
-                    <textarea id="customer-address" required></textarea><br>
-                    <button type="button" onclick="placeOrder()">Place Order</button>
-                </form>
-            </div>
-
-            <!-- Order History Section -->
-            <div class="order-history-section">
-                <h2>Order History</h2>
-                <table id="order-history-table">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Items</th>
-                            <th>Total</th>
-                            <th>Customer</th>
-                        </tr>
-                    </thead>
-                    <tbody id="order-history"></tbody>
-                </table>
-            </div>
-        </div>
+  <!-- Search Bar and Filter Buttons -->
+  <div id="controls">
+    <input
+      type="text"
+      id="search-bar"
+      placeholder="Search items by name..."
+      oninput="searchItems()"
+    />
+    <div id="filter-buttons">
+      <button onclick="filterItems('all')">All</button>
+      <button onclick="filterItems('burger')">Burgers</button>
+      <button onclick="filterItems('drinks')">Drinks</button>
+      <button onclick="filterItems('snacks')">Snacks</button>
     </div>
+  </div>
 
-    <script src="main.js"></script>
+  <!-- Items Section -->
+  <div id="items-container"></div>
+
+  <!-- Add New Item Section -->
+  <div id="add-item-section">
+    <h2>Add New Item</h2>
+    <form id="add-item-form">
+      <label for="item-name">Item Name:</label>
+      <input type="text" id="item-name" required />
+      
+      <label for="item-price">Price (Rs):</label>
+      <input type="number" id="item-price" required />
+      
+      <label for="item-image">Image URL:</label>
+      <input type="url" id="item-image" required />
+      
+      <button type="submit">Add Item</button>
+    </form>
+  </div>
+
+  <!-- Cart Section -->
+  <div id="cart">
+    <h2>Cart</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="cart-list"></tbody>
+    </table>
+    <p>Total: <span id="total">0</span> Rs</p>
+
+    <!-- Customer Details -->
+    <h3>Customer Details</h3>
+    <form id="customer-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Customer Name" required /><br>
+      <label for="contact">Contact:</label>
+      <input type="text" id="contact" placeholder="Phone Number" required />
+      <button type="button" id="checkout">Checkout</button>
+      <button id="clear-cart-btn">Clear Cart</button>
+    </form>
+  </div>
+
+  <!-- Orders Table -->
+  <div id="orders-section">
+    <h2>All Orders</h2>
+    <table id="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer Name</th>
+          <th>Contact</th>
+          <th>Items</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+
+
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
