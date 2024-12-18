@@ -8,7 +8,7 @@ body {
 
 #loginPage, #posSystem {
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
@@ -54,7 +54,7 @@ button:hover {
 }
 
 .burger-card {
-    background-color: #fff;
+    background-color: #f6cece;
     padding: 15px;
     border: 1px solid #ddd;
     width: 250px;
@@ -69,7 +69,7 @@ button:hover {
     top: 20px;
     right: 20px;
     width: 300px;
-    background-color: #fff;
+    background-color: #e29898;
     padding: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;

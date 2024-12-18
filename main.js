@@ -1,4 +1,4 @@
-// Sample items data
+
 const items = [
     { id: "B1001", name: "Classic Burger (Large)", price: 750, discount: 0, category: "burger", image: "https://images.pexels.com/photos/5554607/pexels-photo-5554607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
     { id: "B1002", name: "Classic Burger (Regular)", price: 1500, discount: 15, category: "burger", image: "https://images.pexels.com/photos/1556698/pexels-photo-1556698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
@@ -42,7 +42,6 @@ const items = [
     { id: "B1041", name: "Hot Wings (Large)", price: 2400, discount: 0, category: "chicken", image: "https://www.browneyedbaker.com/wp-content/uploads/2020/12/buttermilk-fried-chicken-12-square.jpg" },
     { id: "B1042", name: "Devilled Chicken (Large)", price: 900, discount: 0, category: "chicken", image: "https://foodserviceindia.com/wp-content/uploads/2023/07/Frame-65.jpg" },
     { id: "B1043", name: "Devilled Chicken (Regular)", price: 600, discount: 0, category: "chicken", image: "https://poshjournal.com/wp-content/uploads/2021/02/thai-bbq-chicken-wings-8.jpg" },
-
     { id: "B1044", name: "pepsi", price: 350, discount: 0, category: "beverages", image: "https://www.ocado.com/productImages/612/612029011_1_640x640.jpg?identifier=03aff14ac20f6f9db3749cf29dd865b7" },
     { id: "B1045", name: "Coca Cola", price: 400, discount: 0, category: "beverages", image: "https://i.pinimg.com/originals/99/af/9c/99af9cd03aaf6a856fdfea9d27802f24.jpg" },
     { id: "B1046", name: "Sprite", price: 500, discount: 0, category: "beverages", image: "https://i.pinimg.com/736x/da/29/54/da29549b7fd367669b7d8502d9d0028c.jpg" },
