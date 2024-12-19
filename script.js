@@ -60,7 +60,8 @@ function displayItems(filter = "all") {
       <div class="item">
         <img src="${item.image}" alt="${item.name}">
         <h3>${item.name}</h3>
-        <p>Rs. ${item.price}</p>
+        <p>Rs. ${item.price}.00</p>
+        <p>Discount. ${item.discount}%</p>
         <button onclick="addToCart('${item.id}')">Add to Cart</button>
       </div>
     `;
@@ -158,6 +159,9 @@ function addNewItem(event) {
   } else {
     alert("Please fill all fields.");
   }
+  
+
+
 }
 
 document.getElementById("add-item-form").addEventListener("submit", addNewItem);
