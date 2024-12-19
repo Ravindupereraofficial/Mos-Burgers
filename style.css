@@ -1,4 +1,4 @@
-/* General Styling */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f1f1f1;
@@ -63,7 +63,7 @@ button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Cart Section - Fixed on the Right */
+
 #cartSection {
     position: fixed;
     top: 20px;
@@ -119,7 +119,7 @@ button {
     border-radius: 10px;
 }
 
-/* Customer Table Styling */
+/* Customer Table css tika */
 #customerTable {
     margin-top: 20px;
     border-collapse: collapse;
@@ -134,7 +134,7 @@ button {
 #customerTable th {
     background-color: #f1f1f1;
 }
-/* Cart Section - Fixed on the Right as Vertical Navbar */
+
 #cartSection {
     position: fixed;
     top: 20px;
@@ -324,7 +324,7 @@ body {
     object-fit: cover;
   }
 
-  /* Style for the login button */
+  /*  login button css*/
 .login-btn {
   background-color: #f48a48; 
   color: white; 
