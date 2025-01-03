@@ -210,7 +210,7 @@ header {
     padding: 8px;
     width: 80%;
     margin: 5px 0;
-    border: 1px solid #0288d1; /* Light blue border */
+    border: 1px solid #0696e4; /* Light blue border */
     border-radius: 5px;
 }
 
@@ -224,7 +224,7 @@ header {
 }
 
 #cart button:hover {
-    background: #0277bd; /* Slightly darker blue */
+    background: #074f79; /* Slightly darker blue */
 }
 
 /* Orders Table */
@@ -245,7 +245,7 @@ th, td {
 }
 
 th {
-    background: #0d47a1; /* Deep blue */
+    background: #b8cdee; /* Deep blue */
     color: white;
 }
 
