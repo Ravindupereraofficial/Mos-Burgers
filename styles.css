@@ -1,4 +1,4 @@
-/* General Styling */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +7,8 @@
 }
 
 body {
-    background-color: #e3f2fd;  /* Light blue background */
-    color: #0d47a1;  /* Deep blue text */
+    background-color: #e3f2fd;  
+    color: #0d47a1;  
     line-height: 1.6;
     padding: 10px;
 }
@@ -17,13 +17,13 @@ body {
 header {
     text-align: center;
     padding: 15px 0;
-    background-color: #0d47a1; /* Deep blue */
+    background-color: #0d47a1; 
     color: #fff;
     font-size: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Controls Section */
+
 #controls {
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ header {
 #search-bar {
     width: 300px;
     padding: 10px;
-    border: 2px solid #0d47a1;  /* Deep blue border */
+    border: 2px solid #0d47a1;  
     border-radius: 5px;
     font-size: 1rem;
 }
@@ -44,17 +44,17 @@ header {
     padding: 10px 20px;
     border: none;
     color: white;
-    background-color: #0d47a1; /* Deep blue */
+    background-color: #0d47a1; 
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 #filter-buttons button:hover {
-    background-color: #1565c0; /* Slightly lighter blue */
+    background-color: #1565c0; 
 }
 
-/* Items Section */
+
 #items-container {
     display: flex;
     flex-wrap: wrap;
@@ -244,7 +244,7 @@ th, td {
 }
 
 th {
-    background: #b8cdee; /* Deep blue */
+    background: #b8cdee; 
     color: white;
 }
 
@@ -253,10 +253,10 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-    background-color: #e3f2fd; /* Light blue hover */
+    background-color: #e3f2fd; 
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     #controls {
         flex-direction: column;
