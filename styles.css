@@ -2,25 +2,45 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 body {
-    background-color: #e3f2fd;  
-    color: #0d47a1;  
+    background-color: #e3f2fd;
+    color: #0d47a1;
     line-height: 1.6;
     padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Header */
 header {
     text-align: center;
     padding: 20px 0;
-    background-color: #0d47a1; 
+    background: linear-gradient(90deg, #0d47a1, #1565c0);
     color: #fff;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e3f2fd;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d47a1;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1565c0;
 }
 
 /* Controls */
@@ -35,23 +55,30 @@ header {
 #search-bar {
     width: 320px;
     padding: 12px;
-    border: 2px solid #0d47a1;  
+    border: 2px solid #0d47a1;
     border-radius: 8px;
     font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#search-bar:focus {
+    border-color: #1565c0;
+    outline: none;
 }
 
 #filter-buttons button {
     padding: 12px 25px;
     border: none;
     color: white;
-    background-color: #0d47a1; 
+    background-color: #0d47a1;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s;
 }
 
 #filter-buttons button:hover {
-    background-color: #1565c0; 
+    background-color: #1565c0;
+    transform: translateY(-2px);
 }
 
 /* Item List */
@@ -93,22 +120,23 @@ header {
 
 .item p {
     font-size: 1.1rem;
-    color: #0d47a1; 
+    color: #0d47a1;
     margin-bottom: 12px;
 }
 
 .item button {
     padding: 10px 14px;
     border: none;
-    background: #0288d1; 
+    background: #0288d1;
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s;
 }
 
 .item button:hover {
-    background: #0277bd; 
+    background: #0277bd;
+    transform: scale(1.05);
 }
 
 /* Add Item Section */
@@ -143,6 +171,12 @@ header {
     font-size: 1.1rem;
     border-radius: 8px;
     border: 1px solid #0288d1;
+    transition: border-color 0.3s;
+}
+
+#add-item-form input:focus {
+    border-color: #1565c0;
+    outline: none;
 }
 
 #add-item-form button {
@@ -152,11 +186,12 @@ header {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #add-item-form button:hover {
     background-color: #1565c0;
+    transform: scale(1.05);
 }
 
 /* Cart Section */
@@ -217,22 +252,28 @@ header {
     padding: 10px;
     width: 80%;
     margin: 10px 0;
-    border: 1px solid #0696e4; 
+    border: 1px solid #0696e4;
     border-radius: 8px;
+}
+
+#cart input:focus {
+    border-color: #1565c0;
+    outline: none;
 }
 
 #cart button {
     padding: 12px 18px;
-    background: #0288d1; 
+    background: #0288d1;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #cart button:hover {
-    background: #074f79; 
+    background: #074f79;
+    transform: scale(1.05);
 }
 
 #orders-section {
@@ -252,7 +293,7 @@ th, td {
 }
 
 th {
-    background: #b8cdee; 
+    background: #0d47a1;
     color: white;
 }
 
@@ -261,7 +302,7 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-    background-color: #e3f2fd; 
+    background-color: #e3f2fd;
 }
 
 @media (max-width: 768px) {
@@ -297,4 +338,23 @@ tbody tr:hover {
     #add-item-form button {
         width: 100%;
     }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #e3e3e3;
+}
+
+body.dark-mode header {
+    background: linear-gradient(90deg, #1a237e, #3949ab);
+}
+
+body.dark-mode #cart-table th {
+    background-color: #3949ab;
+}
+
+body.dark-mode #cart input {
+    background-color: #333;
+    color: #e3e3e3;
 }
