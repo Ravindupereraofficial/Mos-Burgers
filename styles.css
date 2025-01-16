@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -16,36 +15,37 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     background-color: #0d47a1; 
     color: #fff;
-    font-size: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.7rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
 }
 
-
+/* Controls */
 #controls {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 20px auto;
+    gap: 15px;
+    margin: 30px auto;
     flex-wrap: wrap;
 }
 
 #search-bar {
-    width: 300px;
-    padding: 10px;
+    width: 320px;
+    padding: 12px;
     border: 2px solid #0d47a1;  
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
 }
 
 #filter-buttons button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
     color: white;
     background-color: #0d47a1; 
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
@@ -54,53 +54,55 @@ header {
     background-color: #1565c0; 
 }
 
-
+/* Item List */
 #items-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
 .item {
-    width: 220px;
-    padding: 15px;
+    width: 240px;
+    padding: 18px;
     background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .item img {
     width: 100%;
-    height: 140px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    height: 160px;
+    border-radius: 10px;
+    margin-bottom: 12px;
 }
 
 .item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .item p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #0d47a1; 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .item button {
-    padding: 8px 12px;
+    padding: 10px 14px;
     border: none;
     background: #0288d1; 
     color: white;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
@@ -109,25 +111,27 @@ header {
     background: #0277bd; 
 }
 
-
+/* Add Item Section */
 #add-item-section {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 400px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 450px;
 }
 
 #add-item-section h2 {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 #add-item-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 #add-item-form label {
@@ -135,55 +139,57 @@ header {
 }
 
 #add-item-form input {
-    padding: 8px;
-    font-size: 1rem;
-    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
     border: 1px solid #0288d1;
 }
 
 #add-item-form button {
-    padding: 10px;
-    background-color: #0d47a1; /* Deep blue */
+    padding: 12px;
+    background-color: #0d47a1;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 #add-item-form button:hover {
-    background-color: #1565c0; /* Lighter blue */
+    background-color: #1565c0;
 }
 
 /* Cart Section */
 #cart {
-    margin: 20px auto;
-    padding: 15px;
+    margin: 30px auto;
+    padding: 20px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 850px;
 }
 
 #cart h2 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 #cart-table {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-collapse: collapse;
 }
 
 #cart-table th, #cart-table td {
-    padding: 12px;
+    padding: 14px;
     text-align: left;
     border: 1px solid #ddd;
 }
 
 #cart-table th {
-    background-color: #0d47a1; /* Deep blue */
+    background-color: #0d47a1;
     color: white;
 }
 
@@ -192,35 +198,37 @@ header {
 }
 
 #cart-table tbody tr:hover {
-    background-color: #e3f2fd; /* Light blue hover */
+    background-color: #e3f2fd;
 }
 
 #cart p {
     text-align: center;
-    font-size: 1.2rem;
-    margin: 10px 0;
+    font-size: 1.3rem;
+    margin: 15px 0;
+    font-weight: bold;
 }
 
 #cart form {
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 
 #cart input {
-    padding: 8px;
+    padding: 10px;
     width: 80%;
-    margin: 5px 0;
+    margin: 10px 0;
     border: 1px solid #0696e4; 
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 #cart button {
-    padding: 10px 15px;
+    padding: 12px 18px;
     background: #0288d1; 
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #cart button:hover {
@@ -228,7 +236,7 @@ header {
 }
 
 #orders-section {
-    margin-top: 20px;
+    margin-top: 30px;
     overflow-x: auto;
 }
 
@@ -239,7 +247,7 @@ table {
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -255,7 +263,6 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
     background-color: #e3f2fd; 
 }
-
 
 @media (max-width: 768px) {
     #controls {
@@ -283,7 +290,7 @@ tbody tr:hover {
     }
 
     #cart, #add-item-section, #orders-section {
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     #add-item-form input,
